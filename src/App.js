@@ -12,8 +12,9 @@ function App() {
 
   const handleSearch = () => {
     const trimmed = searchTerm.trim();
+
     if (trimmed === "") {
-      setMeaning("");
+      setMeaning("Word not found in the dictionary.");
       return;
     }
 
@@ -30,7 +31,6 @@ function App() {
 
   return (
     <div style={{ padding: 20, fontFamily: "Arial" }}>
-      {/* Test expects this exact text */}
       <h1>Dictionary App</h1>
 
       <input
@@ -41,10 +41,9 @@ function App() {
       />
       <button onClick={handleSearch}>Search</button>
 
-      {/* Keep Definition: always visible for tests */}
       <div style={{ marginTop: 20 }}>
         <h3>Definition:</h3>
-        {meaning && <p>{meaning}</p>}
+        <p>{meaning}</p>
       </div>
     </div>
   );
